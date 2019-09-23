@@ -1,1 +1,1 @@
-# Steganografie 😐
+# Steganografie

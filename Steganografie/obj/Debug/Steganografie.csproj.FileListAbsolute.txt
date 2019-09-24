@@ -1,0 +1,14 @@
+C:\Users\andy\Documents\school\Steganografie\Steganografie\bin\Debug\Steganografie.exe.config
+C:\Users\andy\Documents\school\Steganografie\Steganografie\bin\Debug\Steganografie.exe
+C:\Users\andy\Documents\school\Steganografie\Steganografie\bin\Debug\Steganografie.pdb
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\Steganografie.csprojAssemblyReference.cache
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\MainWindow.g.cs
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\App.g.cs
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\Steganografie_MarkupCompile.cache
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\Steganografie_MarkupCompile.lref
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\MainWindow.baml
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\Steganografie.g.resources
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\Steganografie.Properties.Resources.resources
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\Steganografie.csproj.GenerateResource.cache
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\Steganografie.exe
+C:\Users\andy\Documents\school\Steganografie\Steganografie\obj\Debug\Steganografie.pdb

@@ -38,6 +38,11 @@ namespace Steganografie
                 imgPhoto.Source = new BitmapImage(new Uri(op.FileName));
             }
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
 

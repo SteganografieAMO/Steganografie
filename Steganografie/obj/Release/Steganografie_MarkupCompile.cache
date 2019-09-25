@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\school\leerjaar 2 2019-2020\periode 5\steganografie\Steganografie\obj\Debug\
+C:\school\leerjaar 2 2019-2020\periode 5\steganografie\Steganografie\obj\Release\
 Steganografie
 none
 false
-DEBUG;TRACE
+TRACE
 C:\school\leerjaar 2 2019-2020\periode 5\steganografie\Steganografie\App.xaml
 11151548125
 
@@ -16,5 +16,5 @@ C:\school\leerjaar 2 2019-2020\periode 5\steganografie\Steganografie\App.xaml
 13-1505183044
 MainWindow.xaml;
 
-False
+True
 

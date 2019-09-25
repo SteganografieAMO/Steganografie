@@ -12,11 +12,12 @@
             <ColumnDefinition Width="150*" />
             <ColumnDefinition Width="55*" />
         </Grid.ColumnDefinitions>
-        <Image Margin="12,12,16,71" Name="imgPhoto"
-        Stretch="Fill" Grid.Column="1" />
+        <Image Margin="149,10,46.6,73" Name="imgPhoto"
+        Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="2" />
         <Button Height="23" HorizontalAlignment="Left"
-        Margin="12,0,0,34" Name="loadImgButton" VerticalAlignment="Bottom"
+        Margin="149,0,0,34" Name="loadImgButton" VerticalAlignment="Bottom"
         Width="75" Grid.Column="1" Click="btnLoad_Click">_Load</Button>
-        <TextBox>Hier is je textbox carlo</TextBox>
+        <TextBox Margin="0,72,375.6,34" MaxWidth="250px" Grid.ColumnSpan="2">plaats hier uw tekst die op de foto moet verschijnen</TextBox>
+
     </Grid>
 </Window>

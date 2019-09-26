@@ -5,19 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Steganografie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="55*" />
-            <ColumnDefinition Width="150*" />
-            <ColumnDefinition Width="55*" />
+            <ColumnDefinition Width="155*" />
+            <ColumnDefinition Width="155*" />
+            <ColumnDefinition Width="155*" />
         </Grid.ColumnDefinitions>
-        <Image Margin="149,10,46.6,73" Name="imgPhoto"
-        Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="2" />
-        <Button Height="23" HorizontalAlignment="Left"
-        Margin="149,0,0,34" Name="loadImgButton" VerticalAlignment="Bottom"
-        Width="75" Grid.Column="1" Click="btnLoad_Click">_Load</Button>
-        <TextBox Margin="0,72,375.6,34" MaxWidth="250px" Grid.ColumnSpan="2">plaats hier uw tekst die op de foto moet verschijnen</TextBox>
-
+        <Image Margin="0,0,0,25"
+               Name="imgPhoto"
+               Stretch="Fill"
+               Grid.Column="1"
+               Grid.ColumnSpan="1" 
+               />
+        <Button Height="25" 
+                HorizontalAlignment="Center"
+                Margin="0,0,0,0" 
+                Name="loadImgButton" 
+                VerticalAlignment="Bottom"
+                Width="75" 
+                Grid.Column="1" 
+                Click="btnLoad_Click">_Load
+        </Button>
+        <RichTextBox Margin="0,0,0,25"  
+                 Grid.ColumnSpan="1">
+        </RichTextBox>
+        <Image
+            Margin="0,0,0,0"
+            Name="imgPhotoEncrypted"
+            Stretch="Fill"
+            Grid.ColumnSpan="3"
+            Grid.Column="2"
+            />
     </Grid>
 </Window>

@@ -12,12 +12,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Security.Cryptography;
-
-
+using System.Windows.Shapes;
+using System.Security.Cryptography;
+
+
 namespace Steganografie
-{
+{
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -44,7 +44,22 @@ namespace Steganografie
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        }
+        }
+
+        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+            if (TextBox.Text == null)
+            {
+                MessageBox.Show("je moet tekst invullen");
+            }
+            else if (TextBox.Text != null)
+            {
+                MessageBox.Show("yess");
+            }
+        }
     }
 }
 

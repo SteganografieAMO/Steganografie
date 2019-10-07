@@ -28,9 +28,22 @@
                 Grid.Column="1" 
                 Click="btnLoad_Click">_Load
         </Button>
-        <RichTextBox Margin="0,0,0,25"  
-                 Grid.ColumnSpan="1">
-        </RichTextBox>
+        <TextBox x:Name="TextBox"
+                 Margin="0,0,0,25"  
+                 Grid.ColumnSpan="1"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 AcceptsTab="True"
+                 SpellCheck.IsEnabled="True">
+        </TextBox>
+        <Button Height="25" 
+                HorizontalAlignment="left"
+                x:Name="encryptButton"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,0"
+                Grid.ColumnSpan="1" Click="Button_Click">
+            Encrypt with rot13
+        </Button>
         <Image
             Margin="0,0,0,0"
             Name="imgPhotoEncrypted"

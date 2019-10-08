@@ -83,8 +83,17 @@ namespace Steganografie
             String filePath = @"C:\image\image"+saveNameTextBox.Text+".png";
             string path = @"C:\image";
 
+            if(imgPhoto.Source == null)
+            {
+                MessageBox.Show("maak eerst een foto");
+            }
 
-            if (Directory.Exists(path))
+            else if(saveNameTextBox.Text == "")
+            {
+                MessageBox.Show("u moet eerst nog een naam geven in de textbox boven de knop");
+            }
+
+            else if (Directory.Exists(path))
             {
 
                 var encoder = new PngBitmapEncoder();

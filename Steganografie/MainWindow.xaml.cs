@@ -91,6 +91,8 @@ namespace Steganografie
                 encoder.Frames.Add(BitmapFrame.Create((BitmapSource)imgPhoto.Source));
                 using (FileStream stream = new FileStream(filePath, FileMode.Create))
                     encoder.Save(stream);
+
+                MessageBox.Show("uw foto is nu opgeslagen");
             }
             else
             {

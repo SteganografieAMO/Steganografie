@@ -34,11 +34,13 @@
                 Name="saveImgButton" 
                 VerticalAlignment="Bottom"
                 Width="75" 
+                IsEnabled="False"
                 Grid.Column="2" Click="SaveImgButton_Click" >_Save
         </Button>
         <TextBox
             Height="25" 
                 HorizontalAlignment="Center"
+            IsEnabled="False"
                 Margin="0,0,0,-300" 
                 Name="saveNameTextBox" 
                 VerticalAlignment="Center"
@@ -54,6 +56,7 @@
                 Width="auto" 
                 Grid.Column="2">Type hier hoe u de foto wil opslaan</Label>
         <TextBox x:Name="TextBox"
+                 IsEnabled="False"
                  Margin="0,0,0,25"  
                  Grid.ColumnSpan="1"
                  TextWrapping="Wrap"
@@ -61,7 +64,17 @@
                  AcceptsTab="True"
                  SpellCheck.IsEnabled="True">
         </TextBox>
+        <TextBox
+            x:Name="EncryptText"
+            IsEnabled="False"
+                 Margin="0,0,0,25"  
+                 Grid.ColumnSpan="2"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+            Visibility="Hidden"
+            ></TextBox>
         <Button Height="25" 
+                IsEnabled="False"
                 HorizontalAlignment="left"
                 x:Name="encryptButton"
                 VerticalAlignment="Bottom"

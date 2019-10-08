@@ -81,12 +81,26 @@ namespace Steganografie
         private void SaveImgButton_Click(object sender, RoutedEventArgs e)
         {
             String filePath = @"C:\image\image.png";
+            string path = @"C:\image";
 
-            var encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create((BitmapSource)imgPhoto.Source));
-            using (FileStream stream = new FileStream(filePath, FileMode.Create))
-                encoder.Save(stream);
+
+            if (Directory.Exists(path))
+            {
+
+                var encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create((BitmapSource)imgPhoto.Source));
+                using (FileStream stream = new FileStream(filePath, FileMode.Create))
+                    encoder.Save(stream);
+            }
+            else
+            {
+                DirectoryInfo di = Directory.CreateDirectory(path);
+
+
+            }
         }
+
+
     }
 }
 

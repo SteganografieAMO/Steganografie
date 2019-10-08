@@ -28,6 +28,14 @@
                 Grid.Column="1" 
                 Click="btnLoad_Click">_Load
         </Button>
+        <Button Height="25" 
+                HorizontalAlignment="Center"
+                Margin="0,0,0,0" 
+                Name="saveImgButton" 
+                VerticalAlignment="Bottom"
+                Width="75" 
+                Grid.Column="2" Click="SaveImgButton_Click" >_Save
+        </Button>
         <TextBox x:Name="TextBox"
                  Margin="0,0,0,25"  
                  Grid.ColumnSpan="1"

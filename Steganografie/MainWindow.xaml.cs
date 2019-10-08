@@ -12,12 +12,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Security.Cryptography;
-
-
+using System.Windows.Shapes;
+
+using System.Security.Cryptography;
+using System.IO;
+
 namespace Steganografie
-{
+{
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -44,22 +46,47 @@ namespace Steganografie
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        }
-
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-
-            if (TextBox.Text == null)
-            {
-                MessageBox.Show("je moet tekst invullen");
-            }
-            else if (TextBox.Text != null)
-            {
-                MessageBox.Show("yess");
-            }
-        }
+        }
+
+
+
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+
+        {
+
+            
+
+
+
+            if (TextBox.Text == null)
+
+            {
+
+                MessageBox.Show("je moet tekst invullen");
+
+            }
+
+            else if (TextBox.Text != null)
+
+            {
+
+                MessageBox.Show("yess");
+
+            }
+
+        }
+
+        private void SaveImgButton_Click(object sender, RoutedEventArgs e)
+        {
+            String filePath = @"C:\image\image.png";
+
+            var encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create((BitmapSource)imgPhoto.Source));
+            using (FileStream stream = new FileStream(filePath, FileMode.Create))
+                encoder.Save(stream);
+        }
     }
 }
 

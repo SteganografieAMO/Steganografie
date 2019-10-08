@@ -80,7 +80,7 @@ namespace Steganografie
 
         private void SaveImgButton_Click(object sender, RoutedEventArgs e)
         {
-            String filePath = @"C:\image\image.png";
+            String filePath = @"C:\image\image"+saveNameTextBox.Text+".png";
             string path = @"C:\image";
 
 

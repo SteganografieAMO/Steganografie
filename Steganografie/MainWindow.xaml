@@ -36,6 +36,23 @@
                 Width="75" 
                 Grid.Column="2" Click="SaveImgButton_Click" >_Save
         </Button>
+        <TextBox
+            Height="25" 
+                HorizontalAlignment="Center"
+                Margin="0,0,0,-300" 
+                Name="saveNameTextBox" 
+                VerticalAlignment="Center"
+                Width="75" 
+                Grid.Column="2"
+            ></TextBox>
+        <Label
+            Height="25" 
+                HorizontalAlignment="Center"
+                Margin="0,0,0,-250" 
+                Name="saveNameLavel" 
+                VerticalAlignment="Center"
+                Width="auto" 
+                Grid.Column="2">Type hier hoe u de foto wil opslaan</Label>
         <TextBox x:Name="TextBox"
                  Margin="0,0,0,25"  
                  Grid.ColumnSpan="1"

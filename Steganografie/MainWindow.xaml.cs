@@ -76,7 +76,13 @@ namespace Steganografie
             }
         }
 
+        public class TextToBit
+        {
 
+        }
+                    
+
+        
         private void Button_Click(object sender, RoutedEventArgs e)
 
         {
@@ -103,7 +109,21 @@ namespace Steganografie
                     saveNameTextBox.IsEnabled = true;
 
                 EncryptText.Text = EncryptDecrypt.Encrypt(TextBox.Text, "sblw-3hn8-sqoy19");
-                
+                string text = EncryptText.Text;
+                byte[] bytes = Encoding.ASCII.GetBytes(text);
+
+                foreach (byte bits in bytes)
+                {
+                    string bitString = Convert.ToString(bits, 2);
+                    char[] bit = bitString.ToCharArray();
+
+                }
+
+                //nodig voor straks het decrypten
+                //string someString = Encoding.ASCII.GetString(bytes);
+
+                //saveNameTextBox.Text = EncryptDecrypt.Decrypt(someString, "sblw-3hn8-sqoy19");
+
 
             }
 

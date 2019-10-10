@@ -65,6 +65,16 @@
                  SpellCheck.IsEnabled="True">
         </TextBox>
         <TextBox
+            x:Name="bitTextBox"
+            IsEnabled="False"
+                 Margin="0,0,0,25"  
+                 Grid.ColumnSpan="2"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+            Visibility="Hidden">
+            
+        </TextBox>
+        <TextBox
             x:Name="EncryptText"
             IsEnabled="False"
                  Margin="0,0,0,25"  

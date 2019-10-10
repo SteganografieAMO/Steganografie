@@ -43,6 +43,21 @@ namespace Steganografie
             TextBox.IsEnabled = true;
             encryptButton.IsEnabled = true;
 
+            var bmp = imgPhoto.Source as BitmapImage;
+
+            int height = bmp.PixelHeight;
+            int width = bmp.PixelWidth;
+            int stride = width * ((bmp.Format.BitsPerPixel + 7) / 8);
+
+            byte[] bytes = new byte[height * stride];
+            bmp.CopyPixels(bytes, stride, 0);
+
+            foreach (byte bits in bytes)
+            {
+                string bitString = Convert.ToString(bits, 2);
+                char[] bit = bitString.ToCharArray();
+
+            }
         }
 
 

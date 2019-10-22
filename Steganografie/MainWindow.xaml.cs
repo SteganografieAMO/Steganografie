@@ -146,7 +146,7 @@ namespace Steganografie
 
         private void SaveImgButton_Click(object sender, RoutedEventArgs e)
         {
-            String filePath = @"C:\image\image"+saveNameTextBox.Text+".png";
+            String filePath = @"C:\image\"+saveNameTextBox.Text+".png";
             string path = @"C:\image";
 
             if(imgPhoto.Source == null)

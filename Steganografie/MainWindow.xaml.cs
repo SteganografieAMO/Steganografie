@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Security.Cryptography;
 using System.IO;
+using System.Collections;
 
 namespace Steganografie
 {
@@ -40,7 +41,7 @@ namespace Steganografie
             {
                 imgPhoto.Source = new BitmapImage(new Uri(op.FileName));
             }
-            TextBox.IsEnabled = true;
+            bitTextBox.IsEnabled = true;
             encryptButton.IsEnabled = true;
 
             var bmp = imgPhoto.Source as BitmapImage;
@@ -59,8 +60,6 @@ namespace Steganografie
 
             }
         }
-
-
 
 
         public class EncryptDecrypt
@@ -91,70 +90,17 @@ namespace Steganografie
             }
         }
 
-        public class TextToBit
-        {
-
-        }
-                    
-
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
-
-        {
-
-            
-
-
-
-            if (TextBox.Text == null)
-
-            {
-
-                MessageBox.Show("je moet tekst invullen");
-
-            }
-
-            else if (TextBox.Text != null)
-
-            {
-
-                MessageBox.Show("yess");
-                
-                    saveImgButton.IsEnabled = true;
-                    saveNameTextBox.IsEnabled = true;
-
-                EncryptText.Text = EncryptDecrypt.Encrypt(TextBox.Text, "sblw-3hn8-sqoy19");
-                string text = EncryptText.Text;
-                byte[] bytes = Encoding.ASCII.GetBytes(text);
-
-                foreach (byte bits in bytes)
-                {
-                    string bitString = Convert.ToString(bits, 2);
-                    char[] bit = bitString.ToCharArray();
-
-                }
-
-                //nodig voor straks het decrypten
-                //string someString = Encoding.ASCII.GetString(bytes);
-
-                //saveNameTextBox.Text = EncryptDecrypt.Decrypt(someString, "sblw-3hn8-sqoy19");
-
-
-            }
-
-        }
-
         private void SaveImgButton_Click(object sender, RoutedEventArgs e)
         {
-            String filePath = @"C:\image\image"+saveNameTextBox.Text+".png";
+            String filePath = @"C:\image\image" + saveNameTextBox.Text + ".png";
             string path = @"C:\image";
 
-            if(imgPhoto.Source == null)
+            if (imgPhoto.Source == null)
             {
                 MessageBox.Show("maak eerst een foto");
             }
 
-            else if(saveNameTextBox.Text == "")
+            else if (saveNameTextBox.Text == "")
             {
                 MessageBox.Show("u moet eerst nog een naam geven in de textbox boven de knop");
             }
@@ -168,7 +114,7 @@ namespace Steganografie
                     encoder.Save(stream);
 
                 MessageBox.Show("uw foto is nu opgeslagen");
-                
+
             }
             else
             {
@@ -176,6 +122,69 @@ namespace Steganografie
 
 
             }
+        }
+        private static BitmapImage LoadImage(byte[] imageData)
+        {
+            if (imageData == null || imageData.Length == 0) return null;
+            var image = new BitmapImage();
+            using (var mem = new MemoryStream(imageData))
+            {
+                mem.Position = 0;
+                image.BeginInit();
+                image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.UriSource = null;
+                image.StreamSource = mem;
+                image.EndInit();
+            }
+            image.Freeze();
+            return image;
+        }
+
+        private void encryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitTextBox.Text != null)
+            {
+                saveImgButton.IsEnabled = true;
+                saveNameTextBox.IsEnabled = true;
+
+                EncryptText.Text = EncryptDecrypt.Encrypt(bitTextBox.Text, "sblw-3hn8-sqoy19");
+                string text = EncryptText.Text;
+                byte[] bytes = Encoding.ASCII.GetBytes(text);
+
+                foreach (byte bits in bytes)
+                {
+                    string bitString = Convert.ToString(bits, 2);
+                    char[] bit = bitString.ToCharArray();
+                }
+
+               
+                MessageBox.Show(Format(bytes));
+                //nodig voor het decrypten straks
+                //string someString = Encoding.ASCII.GetString(bytes);
+
+                //saveNameTextBox.Text = EncryptDecrypt.Decrypt(someString, "sblw-3hn8-sqoy19");
+            }
+            else if (string.IsNullOrWhiteSpace(bitTextBox.Text))
+            {
+                MessageBox.Show("Je moet tekst invullen in het tekst vak");   
+            }
+        }
+        public static string Format(byte[] bytes)
+        {
+            string result = string.Empty;
+            foreach (byte value in bytes)
+            {
+                string binarybyte = Convert.ToString(value, 2);
+                while (binarybyte.Length < 8)
+                {
+                    binarybyte = "0" + binarybyte;
+                }
+                result += binarybyte;
+
+            }
+            return result;
+
         }
 
     }

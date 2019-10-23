@@ -54,8 +54,9 @@
                 Name="saveNameLavel" 
                 VerticalAlignment="Center"
                 Width="auto" 
-                Grid.Column="2">Type hier hoe u de foto wil opslaan</Label>
-        <TextBox x:Name="TextBox"
+                Grid.Column="2">Type hier hoe u de foto wil opslaan
+        </Label>
+        <TextBox x:Name="bitTextBox"
                  IsEnabled="False"
                  Margin="0,0,0,25"  
                  Grid.ColumnSpan="1"
@@ -63,16 +64,6 @@
                  AcceptsReturn="True"
                  AcceptsTab="True"
                  SpellCheck.IsEnabled="True">
-        </TextBox>
-        <TextBox
-            x:Name="bitTextBox"
-            IsEnabled="False"
-                 Margin="0,0,0,25"  
-                 Grid.ColumnSpan="2"
-                 TextWrapping="Wrap"
-                 AcceptsReturn="True"
-            Visibility="Hidden">
-            
         </TextBox>
         <TextBox
             x:Name="EncryptText"
@@ -89,7 +80,7 @@
                 x:Name="encryptButton"
                 VerticalAlignment="Bottom"
                 Margin="0,0,0,0"
-                Grid.ColumnSpan="1" Click="Button_Click">
+                Grid.ColumnSpan="1" Click="encryptButton_Click">
             Encrypt with rot13
         </Button>
         <Image

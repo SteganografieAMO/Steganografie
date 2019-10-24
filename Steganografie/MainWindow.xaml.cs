@@ -92,36 +92,36 @@ namespace Steganografie
 
         private void SaveImgButton_Click(object sender, RoutedEventArgs e)
         {
-         //   String filePath = @"C:\image\image" + saveNameTextBox.Text + ".png";
-            //string path = @"C:\image";
+            String filePath = @"C:\image\image" + saveNameTextBox.Text + ".png";
+            string path = @"C:\image";
 
-            //if (imgPhoto.Source == null)
-            //{
-              //  MessageBox.Show("maak eerst een foto");
-           // }
+            if (imgPhoto.Source == null)
+            {
+                MessageBox.Show("maak eerst een foto");
+            }
 
-            //else if (saveNameTextBox.Text == "")
-            //{
-               // MessageBox.Show("u moet eerst nog een naam geven in de textbox boven de knop");
-            //}
+            else if (saveNameTextBox.Text == "")
+            {
+                MessageBox.Show("u moet eerst nog een naam geven in de textbox boven de knop");
+            }
 
-            //else if (Directory.Exists(path))
-            //{
+            else if (Directory.Exists(path))
+            {
 
-               // var encoder = new PngBitmapEncoder();
-                //encoder.Frames.Add(BitmapFrame.Create((BitmapSource)imgPhoto.Source));
-                //using (FileStream stream = new FileStream(filePath, FileMode.Create))
-                  //  encoder.Save(stream);
+                var encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create((BitmapSource)imgPhoto.Source));
+                using (FileStream stream = new FileStream(filePath, FileMode.Create))
+                    encoder.Save(stream);
 
-                //MessageBox.Show("uw foto is nu opgeslagen");
+                MessageBox.Show("uw foto is nu opgeslagen");
 
-            //}
-            //else
-            //{
-               // DirectoryInfo di = Directory.CreateDirectory(path);
+            }
+            else
+            {
+                DirectoryInfo di = Directory.CreateDirectory(path);
 
 
-           // }
+           }
         }
         private static BitmapImage LoadImage(byte[] imageData)
         {
@@ -148,28 +148,29 @@ namespace Steganografie
                 saveImgButton.IsEnabled = true;
                 saveNameTextBox.IsEnabled = true;
 
-                //EncryptText.Text = EncryptDecrypt.Encrypt(bitTextBox.Text, "sblw-3hn8-sqoy19");
+                EncryptText.Text = EncryptDecrypt.Encrypt(bitTextBox.Text, "sblw-3hn8-sqoy19");
                 string text = bitTextBox.Text;
-                byte[] bytes = Encoding.ASCII.GetBytes(text);
+                byte[] bytes = Encoding.UTF8.GetBytes(text);
 
                 foreach (byte bit in bytes)
                 {
-                    
+
                     string bitString = Convert.ToString(bit, 2);
                     char[] bits = bitString.ToCharArray();
 
-                    
-                    
+
+
 
 
                     foreach (char thisBit in bits)
                     {
-                        StreamWriter test = new StreamWriter("C:/image/test/test.txt");
-                        test.WriteLine(thisBit.ToString() + "\n");
-                        //(thisBit.ToString());
-                        test.Close();
+
+                        MessageBox.Show(thisBit.ToString());
+
                     }
                 }
+
+
 
                 //nodig voor het decrypten straks
                 //string someString = Encoding.ASCII.GetString(bytes);
@@ -181,23 +182,20 @@ namespace Steganografie
                 MessageBox.Show("Je moet tekst invullen in het tekst vak");   
             }
         }
-        public static string Format(byte[] bytes)
+
+        public static byte HideBit(char bits, byte destinationByte)
         {
-            string result = string.Empty;
-            foreach (byte value in bytes)
+            int result = 0;
+            if (bits == '1')
             {
-                string binarybyte = Convert.ToString(value, 2);
-                while (binarybyte.Length < 8)
-                {
-                    binarybyte = "0" + binarybyte;
-                }
-                result += binarybyte;
-
+                result = destinationByte | 0b0000_0001;
             }
-            return result;
-
+            else if (bits == '0')
+            {
+                result = destinationByte & 0b1111_1110;
+            }
+            return (byte)result;
         }
-
     }
 }
 

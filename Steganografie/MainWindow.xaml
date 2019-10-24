@@ -81,8 +81,17 @@
                 VerticalAlignment="Bottom"
                 Margin="0,0,0,0"
                 Grid.ColumnSpan="1" Click="encryptButton_Click">
-            Encrypt with rot13
+            Encrypt Text
         </Button>
+        <TextBox Height="25"
+                 Width="500"
+                 HorizontalAlignment="Right"
+                 x:Name="outputTest"
+                 VerticalAlignment="Bottom"
+                 Margin="0,0,0,25"
+                 Grid.ColumnSpan="2"
+                 TextWrapping="Wrap">
+        </TextBox>
         <Image
             Margin="0,0,0,0"
             Name="imgPhotoEncrypted"
@@ -90,5 +99,6 @@
             Grid.ColumnSpan="3"
             Grid.Column="2"
             />
+        
     </Grid>
 </Window>

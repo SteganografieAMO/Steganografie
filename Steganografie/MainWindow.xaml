@@ -20,13 +20,21 @@
                Grid.ColumnSpan="1" 
                />
         <Button Height="25" 
-                HorizontalAlignment="Center"
+                HorizontalAlignment="left"
                 Margin="0,0,0,0" 
                 Name="loadImgButton" 
                 VerticalAlignment="Bottom"
                 Width="75" 
                 Grid.Column="1" 
                 Click="btnLoad_Click">_Load
+        </Button>
+        <Button Height="25"
+                HorizontalAlignment="Right"
+                Margin="0,0,0,0"
+                Name="decryptImage"
+                VerticalAlignment="Bottom"
+                Width="75"
+                Grid.Column="1" Click="decryptImage_Click"> _Decrypt
         </Button>
         <Button Height="25" 
                 HorizontalAlignment="Center"

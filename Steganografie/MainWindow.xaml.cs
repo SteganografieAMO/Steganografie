@@ -50,10 +50,10 @@ namespace Steganografie
             int width = bmp.PixelWidth;
             int stride = width * ((bmp.Format.BitsPerPixel + 7) / 8);
 
-            byte[] bytes = new byte[height * stride];
-            bmp.CopyPixels(bytes, stride, 0);
+            byte[] Imgbytes = new byte[height * stride];
+            bmp.CopyPixels(Imgbytes, stride, 0);
 
-            foreach (byte bits in bytes)
+            foreach (byte bits in Imgbytes)
             {
                 string bitString = Convert.ToString(bits, 2);
                 char[] bit = bitString.ToCharArray();
@@ -92,8 +92,8 @@ namespace Steganografie
 
         private void SaveImgButton_Click(object sender, RoutedEventArgs e)
         {
-            String filePath = @"C:\image\image" + saveNameTextBox.Text + ".png";
-            string path = @"C:\image";
+            String filePath = @"C:\Image\" + saveNameTextBox.Text + ".jpg";
+            string path = @"C:\Image";
 
             if (imgPhoto.Source == null)
             {
@@ -143,8 +143,27 @@ namespace Steganografie
 
         private void encryptButton_Click(object sender, RoutedEventArgs e)
         {
+            
+
             if (bitTextBox.Text != null)
             {
+                var bmp = imgPhoto.Source as BitmapImage;
+
+                int height = bmp.PixelHeight;
+                int width = bmp.PixelWidth;
+                int stride = width * ((bmp.Format.BitsPerPixel + 7) / 8);
+
+                int imglength = height * stride;
+                byte[] IMGbytes = new byte[imglength];
+                bmp.CopyPixels(IMGbytes, stride, 0);
+
+                foreach (byte bits in IMGbytes)
+                {
+                    string bitString = Convert.ToString(bits, 2);
+                    char[] imgbit = bitString.ToCharArray();
+
+                }
+
                 saveImgButton.IsEnabled = true;
                 saveNameTextBox.IsEnabled = true;
 
@@ -164,11 +183,18 @@ namespace Steganografie
 
                     foreach (char thisBit in bits)
                     {
-
-                        MessageBox.Show(thisBit.ToString());
+                        foreach (byte PhotoByte in IMGbytes)
+                        {
+                            byte photobyte = PhotoByte;
+                            byte result = HideBit(thisBit, photobyte);
+                        }
 
                     }
                 }
+                MessageBox.Show("tekst succesvol encrypted in foto");
+
+                
+               
 
 
 
@@ -181,6 +207,7 @@ namespace Steganografie
             {
                 MessageBox.Show("Je moet tekst invullen in het tekst vak");   
             }
+            
         }
 
         public static byte HideBit(char bits, byte destinationByte)
@@ -195,6 +222,13 @@ namespace Steganografie
                 result = destinationByte & 0b1111_1110;
             }
             return (byte)result;
+        }
+
+        private void decryptImage_Click(object sender, RoutedEventArgs e)
+        {
+            DecryptWindow decryp = new DecryptWindow();
+            decryp.Show();
+            
         }
     }
 }

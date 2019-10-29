@@ -34,7 +34,7 @@ namespace Steganografie
         {
             OpenFileDialog op = new OpenFileDialog();
             op.Title = "Select a picture";
-            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+            op.Filter = "All supported images|*.jpg;*.jpeg;*.png|" +
               "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
               "Portable Network Graphic (*.png)|*.png";
             if (op.ShowDialog() == true)
@@ -228,7 +228,7 @@ namespace Steganografie
         {
             DecryptWindow decryp = new DecryptWindow();
             decryp.Show();
-            
+            this.Close();
         }
     }
 }

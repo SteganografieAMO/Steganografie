@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Steganografie.exe" size="18912">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Steganografie.exe" size="19936">
       <assemblyIdentity name="Steganografie" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NZJNKUQryU9sc7SW3bPKCndPxxfwXnEV+aqHxCnkSu8=</dsig:DigestValue>
+        <dsig:DigestValue>NdhO9nlnoBLXq/+qrBy6srCG4XIfln1M0zeYi4zFl/E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

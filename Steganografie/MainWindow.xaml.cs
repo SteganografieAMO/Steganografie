@@ -230,6 +230,8 @@ namespace Steganografie
             decryp.Show();
             this.Close();
         }
+
+
     }
 }
 
